@@ -3,7 +3,6 @@ import './App.css';
 import StartForm from './components/StartForm';
 import Reset from './components/Reset';
 import NameForm from './components/NameForm';
-import Leaderboard from './components/Leaderboard';
 import Specs from './components/Specs';
 import PlayerBox from './components/PlayerBox';
 
