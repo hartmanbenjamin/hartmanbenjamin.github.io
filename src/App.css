@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.reset {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+}
+
+.plump {
+  width: 20px;
+  position: relative;
+  left: 4px;
+  border-left-width: 4px;
+}
+
+.specs {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.specbox {
+  margin-bottom: 20px;
+}
+
+.leaderboard {
+  border: 2px solid;
+  border-collapse: collapse;
+}
+
+.playerbox {
+  border: solid;
+  border-color: black;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  position: relative;
+  left: 5px;
+  width: 200px;
+}
+
+.playerboxfailed {
+  border: solid;
+  border-color: black;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  position: relative;
+  left: 5px;
+  width: 200px;
+  background-color: red;
+}
+
+
+
+table {
+  position: relative;
+  left: 5px;
+}
+
+table td {
+  border: 1px solid black;
+}
+
+table th {
+  border: 1px solid black;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
