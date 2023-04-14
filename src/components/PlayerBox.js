@@ -67,7 +67,6 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
             for (let i = 0; i < names.length; i++) {
                 event.target[i].checked = false
             }
-
             setLosers([])
         }
     }

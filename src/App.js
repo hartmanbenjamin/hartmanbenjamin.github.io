@@ -20,7 +20,7 @@ function App() {
   if (!start) {
     return (
       <div>
-        <h1>Pimpelipom🎈</h1>
+        <h1>Pimpelipompeli🎈</h1>
         <StartForm setStart={setStart} start={start} setNoPlayers={setNoPlayers} noPlayers={noPlayers} setPlumpFee={setPlumpFee} plumpFee={plumpFee} setEntryFee={setEntryFee} entryFee={entryFee} />
       </div>
     )
@@ -31,7 +31,7 @@ function App() {
     return (
       <div>
         <Reset setStart={setStart} setNoPlayers={setNoPlayers} setPlumpFee={setPlumpFee} setEntryFee={setEntryFee} setNamesOk={setNamesOk} setEnd={setEnd}/>
-        <h1>Pimpelipom🎈</h1>
+        <h1>Pimpelipompeli🎈</h1>
         <Specs noPlayers={noPlayers} plumpFee={plumpFee} entryFee={entryFee}/>
         
         <NameForm noPlayers={noPlayers} setNamesOk={setNamesOk} setGlobNames={setNames} />
@@ -42,7 +42,7 @@ function App() {
   
   return (
     <div>
-      <h1>Pimpelipom🎈</h1>
+      <h1>Pimpelipompeli🎈</h1>
       <Reset setStart={setStart} setNoPlayers={setNoPlayers} setPlumpFee={setPlumpFee} setEntryFee={setEntryFee} setNamesOk={setNamesOk} setEnd={setEnd}/>
       {/* <Leaderboard names={names}/> */}
       <PlayerBox names={names} end={end} setEnd={setEnd} plumpFee={plumpFee} entryFee={entryFee}/>

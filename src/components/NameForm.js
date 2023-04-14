@@ -19,7 +19,6 @@ const NameForm = ({noPlayers, setNamesOk, setGlobNames}) => {
 
     const startGame = (event) => {
         event.preventDefault()
-        console.log('starting game with')
         setGlobNames(names)
         setNamesOk(true)
     }
