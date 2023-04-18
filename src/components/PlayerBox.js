@@ -47,7 +47,7 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
                 const plumps = cards[selectedCard] - 10
                 if (plumps>0) {
                     newScores[name].plump += plumps
-                    newScores[name].sakkoRound += parseFloat(plumpFee)
+                    newScores[name].sakkoRound += parseFloat(plumpFee)*plumps
                 }
             })
 
