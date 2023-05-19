@@ -39,7 +39,6 @@ function App() {
     )
   }
 
-  
   return (
     <div>
       <h1>Pimpelipompeli🎈</h1>

@@ -26,7 +26,7 @@ const StartForm = ({setStart, start, setNoPlayers, noPlayers, setPlumpFee, plump
                 <input name="entry" type="number" min="0" step="0.1" onChange={changeEntry} value={entryFee}/><br/>
                 <>Plump fee (€)</><br/>
                 <input name="plump" type="number" min="0" step="0.1" onChange={changePlump} value={plumpFee}/><br/>
-                <button type="submit">Start</button>
+                <button className='butt' type="submit">Start</button>
             </form>
         </div>
     )

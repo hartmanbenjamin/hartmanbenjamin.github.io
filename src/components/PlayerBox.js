@@ -41,6 +41,7 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
                     newScores[name].score = 20
                 }
                 if (newScores[name].score > 30) {
+                    console.log(`name failed because of ${newScores[name].score} points` )
                     newScores[name].fail = true
                     roundfailed += 1
                 }
@@ -64,7 +65,8 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
 
             setScores(newScores)
 
-            for (let i = 0; i < names.length; i++) {
+            for (let i = 0; i < names.length - failedPlayers; i++) {
+                console.log(`event ${i}: ${event.target[i].checked}`)
                 event.target[i].checked = false
             }
             setLosers([])
@@ -130,7 +132,7 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
     if (!end){
         return (
             <div>
-                <div>
+                <div className="somebox">
                 Select losers: 
                 <form onSubmit={addPoints}>
                     {names.map(name => {
