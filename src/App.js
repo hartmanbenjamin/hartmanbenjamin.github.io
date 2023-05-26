@@ -6,8 +6,9 @@ import NameForm from './components/NameForm';
 import Specs from './components/Specs';
 import PlayerBox from './components/PlayerBox';
 import Footer from './components/Footer';
+import axios from 'axios'
 
-function App() {
+const App =  () => {
   const [start, setStart] = useState(false)
   const [noPlayers, setNoPlayers] = useState(3)
   const [plumpFee, setPlumpFee] = useState(0)
@@ -15,7 +16,7 @@ function App() {
   const [namesOk, setNamesOk] = useState(false)
   const [names, setNames] = useState([])
   const [end, setEnd] = useState(false)
-
+  
   
   // Select number of players and fees
   if (!start) { 

@@ -48,6 +48,20 @@ button:active {
   opacity: .5;
 }
 
+.hidden-button {
+  background-color: #f03b16;
+  color: white;
+  text-align: left;
+  text-indent: 20px;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: none
+}
+
+.hidden-button:hover {
+  color: black
+}
 
 .reset {
   position: absolute;

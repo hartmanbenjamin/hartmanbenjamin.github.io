@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+
 let cards = {}
 for (let i = 2; i < 11 ; i++) {
     cards[i] = i
