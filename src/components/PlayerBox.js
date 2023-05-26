@@ -11,6 +11,7 @@ cards['A'] = 14
 cards['Joker'] = 15
 
 const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
+    // init scores object
     let initScore = {}
     names.forEach(name => {
       initScore[name] = {
@@ -23,53 +24,69 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
     })
 
     // console.log(initScore)
+    // set init state
     const [scores, setScores] = useState(initScore)
     const [selectedCard, setSelectedCard] = useState("")
     const [losers, setLosers] = useState([])
     const [failedPlayers, setFailedPlayers] = useState(0) 
 
+
+    // Adds points and does checks
     const addPoints = (event) => {
         event.preventDefault()
+        
+        // Check that a player is selected
         if(losers.length===0) {
             window.alert('Select at least one player. ')
         } else {
             let newScores = {...scores}
             let roundfailed = 0
+            let finalRound = false
+            // console.log(`players left: ${names.length - failedPlayers}`)
+            if(names.length - failedPlayers === 2) {
+                finalRound = true
+            }
             losers.forEach(name => {
+                // Add round score to current score in state
+                // console.log(`selected card: ${selectedCard}`)
+                // console.log(`adding ${cards[selectedCard]} to score`)
                 newScores[name].score += cards[selectedCard]
+                // Drop down to 20 if score is 30
                 if (newScores[name].score === 30) {
                     newScores[name].score = 20
                 }
-                if (newScores[name].score > 30) {
-                    console.log(`name failed because of ${newScores[name].score} points` )
+                // Fail player if score > 30 
+                if (newScores[name].score > 30 || finalRound) {
+                    // console.log(`name failed because of ${newScores[name].score} points` )
                     newScores[name].fail = true
                     roundfailed += 1
                 }
+                // Add plumps&sakko if any
                 const plumps = cards[selectedCard] - 10
                 if (plumps>0) {
                     newScores[name].plump += plumps
                     newScores[name].sakkoRound += parseFloat(plumpFee)*plumps
                 }
             })
-
+            
+            // Add the total number of failed players
             setFailedPlayers(failedPlayers+roundfailed)
             
-            // console.log(roundfailed)
+            // If only one player left, that player wins
             if(names.length - failedPlayers - roundfailed <= 1) {
-                // console.log('game should end')
                 setEnd(true)
                 names.forEach(name => {
                     newScores[name].sakkoTotal += newScores[name].sakkoRound 
                 })
             }
-
             setScores(newScores)
 
             for (let i = 0; i < names.length - failedPlayers; i++) {
-                console.log(`event ${i}: ${event.target[i].checked}`)
+                // console.log(`event ${i}: ${event.target[i].checked}`)
                 event.target[i].checked = false
             }
             setLosers([])
+            setSelectedCard("")
         }
     }
 
@@ -146,7 +163,7 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
                             </label>
                         )
                     })}
-                    <select name="losingcard" id ="losingcard" required={true} onChange={changeCard}>
+                    <select name="losingcard" id ="losingcard" required={true} onChange={changeCard} value={selectedCard}>
                         <option></option>
                         {Object.keys(cards).map(card => {
                             return(
@@ -154,7 +171,7 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
                             )
                         })}
                     </select><br/>
-                    <button type="submit">{buttonText}</button>
+                    <button type="submit" style={{"margin-top": 20}}>{buttonText}</button>
                 </form>
                 </div> 
                 {names.map(name => {
@@ -201,7 +218,7 @@ const PlayerBox = ({names, end, setEnd, plumpFee, entryFee}) => {
             <ul>
                 {names.map(name => {
                     return (
-                        <li>{name} has {scores[name].score} points and {scores[name].plump} plumps ({Math.round(scores[name].sakkoRound*100)/100} €)</li>
+                        <li key={name}>{name} has {scores[name].score} points and {scores[name].plump} plumps ({Math.round(scores[name].sakkoRound*100)/100} €)</li>
                     )
                 })}
             </ul>
