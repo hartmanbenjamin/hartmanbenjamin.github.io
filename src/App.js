@@ -6,7 +6,6 @@ import NameForm from './components/NameForm';
 import Specs from './components/Specs';
 import PlayerBox from './components/PlayerBox';
 import Footer from './components/Footer';
-import axios from 'axios'
 
 const App =  () => {
   const [start, setStart] = useState(false)
@@ -58,8 +57,6 @@ const App =  () => {
       </div>
     </div>
   )
-
-
 }
 
 export default App;

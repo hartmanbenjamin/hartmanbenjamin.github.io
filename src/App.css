@@ -56,7 +56,11 @@ button:active {
   font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
   font-size: 12px;
   font-weight: 800;
-  box-shadow: none
+  box-shadow: none;
+  position: relative;
+  bottom: 0;
+  left: -30px;
+
 }
 
 .hidden-button:hover {

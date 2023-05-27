@@ -1,4 +1,5 @@
 const Reset = ({setStart, setNoPlayers, setPlumpFee, setEntryFee, setNamesOk, setEnd}) => {
+    
     const handleSubmit = (event) => {
         event.preventDefault()
         const reset = window.confirm('Reset current game?')
@@ -9,6 +10,7 @@ const Reset = ({setStart, setNoPlayers, setPlumpFee, setEntryFee, setNamesOk, se
             setStart(false)
             setNamesOk(false)
             setEnd(false)
+            localStorage.clear()
         }
     }
     return (
